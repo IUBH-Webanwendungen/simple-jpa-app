@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+    <persistence-unit name="simple-jps-app" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+            <property name="hibernate.connection.url" value="jdbc:h2:./SimpleJpaApp"/>
+            <property name="hibernate.connection.driver_class" value="org.h2.Driver"/>
+            <property name="hibernate.connection.username" value="sa"/>
+            <property name="hibernate.connection.password" value=""/>
+            <!-- init action: This line needed the first time the app is run... comment out
+                              so that you can persist data after a first successful run. -->
+            <property name="javax.persistence.schema-generation.database.action"  value="drop-and-create"/>
+
+            <!--<property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>-->
+
+        </properties>
+    </persistence-unit>
+</persistence>
